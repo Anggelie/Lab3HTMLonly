@@ -108,7 +108,118 @@
         </ul>
         <button onclick="showSection('menu')">Volver</button>
     </article>
-    
+
+    <!-- Momo's Tea House -->
+<article class="section" id="momosTeaHouse">
+    <h2>Momo's Tea House</h2>
+    <p>"Bienvenido a Momo’s Tea House. Aquí, siempre tienes una taza de té caliente esperándote. ¿Qué tipo de té prefieres?"</p>
+    <button onclick="showSection('tiposTe')">Ver tipos de té</button>
+    <button onclick="showSection('restaurantes')">Volver</button>
+</article>
+
+<!-- Tipos de Té -->
+<article class="section" id="tiposTe">
+    <h2>Tipos de Té</h2>
+    <p>Elige un tipo de té para probar:</p>
+    <button onclick="probarTe('verde')">Té Verde</button>
+    <button onclick="probarTe('negro')">Té Negro</button>
+    <button onclick="probarTe('blanco')">Té Blanco</button>
+    <button onclick="probarTe('chai')">Té Chai</button>
+    <button onclick="showSection('momosTeaHouse')">Volver</button>
+</article>
+
+<!-- Evaluación del Té -->
+<article class="section" id="evaluacionTe">
+    <h2>¿Te gustó el té?</h2>
+    <p id="tipoTeSeleccionado"></p>
+    <button onclick="darOpinionTe('rico')">Sí, estaba delicioso</button>
+    <button onclick="darOpinionTe('feo')">No, no me gustó</button>
+</article>
+
+<!-- Respuesta de Momo -->
+<article class="section" id="respuestaMomo">
+    <h2>Respuesta de Momo</h2>
+    <p id="respuestaMomoTexto"></p>
+    <button onclick="showSection('momosTeaHouse')">Volver</button>
+</article>
+
+<script>
+    function probarTe(tipo) {
+        let nombreTe = {
+            'verde': 'Té Verde',
+            'negro': 'Té Negro',
+            'blanco': 'Té Blanco',
+            'chai': 'Té Chai'
+        };
+        document.getElementById('tipoTeSeleccionado').innerText = "Has probado el " + nombreTe[tipo] + ". ¿Qué te pareció?";
+        showSection('evaluacionTe');
+    }
+
+    function darOpinionTe(opinion) {
+        let mensaje = opinion === 'rico' 
+            ? '"¡Me alegra que hayas disfrutado tu té! Fue agradable verte. Vuelve pronto."' 
+            : '"Vaya... quizás prefieras probar otro lugar."';
+        document.getElementById('respuestaMomoTexto').innerText = mensaje;
+        showSection('respuestaMomo');
+    }
+</script>
+
+
+    <!-- Bobo's Ramen -->
+<article class="section" id="bobosRamen">
+    <h2>Bobo's Ramen</h2>
+    <p>"Hola, soy Bobo. Mi ramen es famoso en toda la región. ¿Te gustaría probarlo?"</p>
+    <button onclick="showSection('tiposRamen')">Ver tipos de ramen</button>
+    <button onclick="showSection('restaurantes')">Volver</button>
+</article>
+
+<!-- Tipos de Ramen -->
+<article class="section" id="tiposRamen">
+    <h2>Tipos de Ramen</h2>
+    <p>Elige un tipo de ramen para probar:</p>
+    <button onclick="probarRamen('cerdo')">Ramen de Cerdo</button>
+    <button onclick="probarRamen('pollo')">Ramen de Pollo</button>
+    <button onclick="probarRamen('vegetariano')">Ramen Vegetariano</button>
+    <button onclick="probarRamen('picante')">Ramen Picante</button>
+    <button onclick="showSection('bobosRamen')">Volver</button>
+</article>
+
+<!-- Evaluación del Ramen -->
+<article class="section" id="evaluacionRamen">
+    <h2>¿Te gustó el ramen?</h2>
+    <p id="tipoRamenSeleccionado"></p>
+    <button onclick="darOpinion('rico')">Sí, estaba delicioso</button>
+    <button onclick="darOpinion('feo')">No, no me gustó</button>
+</article>
+
+<!-- Respuesta de Bobo -->
+<article class="section" id="respuestaBobo">
+    <h2>Respuesta de Bobo</h2>
+    <p id="respuestaBoboTexto"></p>
+    <button onclick="showSection('bobosRamen')">Volver</button>
+</article>
+
+<script>
+    function probarRamen(tipo) {
+        let nombreRamen = {
+            'cerdo': 'Ramen de Cerdo',
+            'pollo': 'Ramen de Pollo',
+            'vegetariano': 'Ramen Vegetariano',
+            'picante': 'Ramen Picante'
+        };
+        document.getElementById('tipoRamenSeleccionado').innerText = "Has probado el " + nombreRamen[tipo] + ". ¿Qué te pareció?";
+        showSection('evaluacionRamen');
+    }
+
+    function darOpinion(opinion) {
+        let mensaje = opinion === 'rico' 
+            ? '"¡Me alegra que te haya gustado! Vuelve pronto para más ramen delicioso."' 
+            : '"Oh, lo siento. Haré mi mejor esfuerzo para mejorar la receta."';
+        document.getElementById('respuestaBoboTexto').innerText = mensaje;
+        showSection('respuestaBobo');
+    }
+</script>
+
     <footer>
         <p>Proyecto de Anggelie Velásquez - Inspirado en Tsuki's Odyssey</p>
     </footer>
