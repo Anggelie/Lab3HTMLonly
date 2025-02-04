@@ -4,33 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Odisea de Tsuki</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .menu, .section { display: none; }
+        .active { display: block; }
+        .character, .location { cursor: pointer; color: blue; text-decoration: underline; }
+    </style>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            let targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            } else {
+                console.error("Sección no encontrada: " + sectionId);
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
         <h1>Bienvenidos a mi historia</h1>
     </header>
     
-    <article>
-        <h2>Sobre mí</h2>
-        <p>Mi nombre es Anggelie Velásquez. Me encanta tomar fotografías, ver anime y disfrutar de momentos de tranquilidad. 
-           Este proyecto está inspirado en un juego que me gusta mucho: <strong>Tsuki's Odyssey</strong>. Es un juego relajante 
-           que me hace sentir bien, y quiero compartir esa sensación a través de esta historia.</p>
-    </article>
-    
-    <article>
+    <article class="section active" id="menu">
         <h2>La llegada a Mushroom Village</h2>
-        <p>Tsuki ha viajado mucho y finalmente ha llegado a <strong>Mushroom Village</strong>, un lugar lleno de personajes 
-           únicos y actividades interesantes. ¿Qué debería hacer primero?</p>
+        <p>Tsuki ha viajado mucho y finalmente ha llegado a <strong>Mushroom Village</strong>. ¿Qué debería hacer primero?</p>
         <nav>
             <ul>
-                <li><a href="personajes.html">Conocer a los habitantes</a></li>
-                <li><a href="casas.html">Visitar casas</a></li>
-                <li><a href="tiendas.html">Ir de compras</a></li>
-                <li><a href="restaurantes.html">Visitar restaurantes y otros lugares</a></li>
+                <li><button onclick="showSection('habitantes')">Conocer a los habitantes</button></li>
+                <li><button onclick="showSection('casas')">Visitar casas</button></li>
+                <li><button onclick="showSection('tiendas')">Ir de compras</button></li>
+                <li><button onclick="showSection('restaurantes')">Visitar restaurantes y otros lugares</button></li>
             </ul>
         </nav>
     </article>
     
+    <article class="section" id="habitantes">
+        <h2>Conocer a los habitantes</h2>
+        <ul>
+            <li class="character" onclick="showSection('historiaBobo')">Bobo</li>
+            <li class="character" onclick="showSection('historiaChi')">Chi</li>
+            <li class="character" onclick="showSection('historiaTsuki')">Tsuki</li>
+            <li class="character" onclick="showSection('historiaUmi')">Umi</li>
+        </ul>
+        <button onclick="showSection('menu')">Volver</button>
+    </article>
+
+    <article class="section" id="historiaTsuki">
+        <h2>Tsuki</h2>
+        <p>"Hola, soy Tsuki. Me encanta la paz de esta aldea. ¿Quieres acompañarme a Momo’s Tea House?"</p>
+        <button onclick="showSection('restaurantes')">Ir a Momo’s Tea House</button>
+    </article>
+    
+    <article class="section" id="historiaUmi">
+        <h2>Umi</h2>
+        <p>"Hola, soy Umi. Vengo de un pueblo costero y traigo los mejores productos marinos a la aldea."</p>
+        <button onclick="showSection('tiendaUmi')">Visitar la tienda de Umi</button>
+    </article>
+    
+    <article class="section" id="casas">
+        <h2>Visitar casas</h2>
+        <ul>
+            <li class="location" onclick="showSection('casaTsuki')">La casa del árbol de Tsuki</li>
+            <li class="location" onclick="showSection('casaChi')">La casa de Chi</li>
+        </ul>
+        <button onclick="showSection('menu')">Volver</button>
+    </article>
+
+    <article class="section" id="tiendas">
+        <h2>Tiendas</h2>
+        <ul>
+            <li class="location" onclick="showSection('tiendaRosemary')">Tienda de Rosemary</li>
+            <li class="location" onclick="showSection('tiendaUmi')">Tienda de Umi</li>
+        </ul>
+        <button onclick="showSection('menu')">Volver</button>
+    </article>
+
+    <article class="section" id="restaurantes">
+        <h2>Restaurantes y otros lugares</h2>
+        <ul>
+            <li class="location" onclick="showSection('momosTeaHouse')">Momo's Tea House</li>
+            <li class="location" onclick="showSection('bobosRamen')">Bobo's Ramen</li>
+        </ul>
+        <button onclick="showSection('menu')">Volver</button>
+    </article>
+        
     <footer>
         <p>Proyecto de Anggelie Velásquez - Inspirado en Tsuki's Odyssey</p>
     </footer>
