@@ -9,6 +9,7 @@
         .menu, .section { display: none; }
         .active { display: block; }
         .character, .location { cursor: pointer; color: blue; text-decoration: underline; }
+        .intro { font-size: 1.2em; color: #333; }
     </style>
     <script>
         function showSection(sectionId) {
@@ -29,7 +30,15 @@
         <h1>Bienvenidos a mi historia</h1>
     </header>
     
-    <article class="section active" id="menu">
+    <!-- Pantalla de Introducción -->
+    <article class="section active" id="intro">
+        <h2>Hola, soy Anggelie</h2>
+        <p class="intro">Me gusta mucho la fotografía, ver anime y jugar videojuegos. Uno de esos juegos utilicé para realizar mi historia, se llama Tsuki's Odyssey. ¿Te gustaría acompañarme en esta aventura?</p>
+        <button onclick="showSection('menu')">Comenzar la aventura</button>
+    </article>
+    
+    <!-- Menú Principal -->
+    <article class="section" id="menu">
         <h2>La llegada a Mushroom Village</h2>
         <p>Tsuki ha viajado mucho y finalmente ha llegado a <strong>Mushroom Village</strong>. ¿Qué debería hacer primero?</p>
         <nav>
@@ -42,6 +51,7 @@
         </nav>
     </article>
     
+    <!-- Conocer a los Habitantes -->
     <article class="section" id="habitantes">
         <h2>Conocer a los habitantes</h2>
         <ul>
@@ -53,18 +63,23 @@
         <button onclick="showSection('menu')">Volver</button>
     </article>
 
+    <!-- Historia de Tsuki -->
     <article class="section" id="historiaTsuki">
         <h2>Tsuki</h2>
-        <p>"Hola, soy Tsuki. Me encanta la paz de esta aldea. ¿Quieres acompañarme a Momo’s Tea House?"</p>
+        <p>"Hola, soy Tsuki. Me encanta la paz de esta aldea. ¿Quieres acompañarme a Momo’s Tea House? ¡Será divertido!"</p>
         <button onclick="showSection('restaurantes')">Ir a Momo’s Tea House</button>
+        <button onclick="showSection('habitantes')">Volver</button>
     </article>
     
+    <!-- Historia de Umi -->
     <article class="section" id="historiaUmi">
         <h2>Umi</h2>
-        <p>"Hola, soy Umi. Vengo de un pueblo costero y traigo los mejores productos marinos a la aldea."</p>
+        <p>"Hola, soy Umi. Vengo de un pueblo costero y traigo los mejores productos marinos a la aldea. ¡Quiero compartirlos contigo!"</p>
         <button onclick="showSection('tiendaUmi')">Visitar la tienda de Umi</button>
+        <button onclick="showSection('habitantes')">Volver</button>
     </article>
-    
+
+    <!-- Visitar Casas -->
     <article class="section" id="casas">
         <h2>Visitar casas</h2>
         <ul>
@@ -74,6 +89,7 @@
         <button onclick="showSection('menu')">Volver</button>
     </article>
 
+    <!-- Tiendas -->
     <article class="section" id="tiendas">
         <h2>Tiendas</h2>
         <ul>
@@ -83,6 +99,7 @@
         <button onclick="showSection('menu')">Volver</button>
     </article>
 
+    <!-- Restaurantes -->
     <article class="section" id="restaurantes">
         <h2>Restaurantes y otros lugares</h2>
         <ul>
@@ -91,9 +108,10 @@
         </ul>
         <button onclick="showSection('menu')">Volver</button>
     </article>
-        
+    
     <footer>
         <p>Proyecto de Anggelie Velásquez - Inspirado en Tsuki's Odyssey</p>
     </footer>
 </body>
 </html>
+
