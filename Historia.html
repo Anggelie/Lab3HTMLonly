@@ -63,6 +63,21 @@
         <button onclick="showSection('menu')">Volver</button>
     </article>
 
+  <!-- Historia de Bobo -->
+<article class="section" id="historiaBobo">
+    <h2>Bobo</h2>
+    <p>"¡Hola! Soy Bobo. Disfruto correr por los campos y explorar todo lo que me rodea. ¿Te gustaría dar un paseo conmigo y descubrir algo nuevo?"</p>
+    <button onclick="showSection('habitantes')">Volver</button>
+</article>
+
+  <!-- Historia de Chi -->
+  <article class="section" id="historiaChi">
+    <h2>Chi</h2>
+    <p>"¡Hola! Soy Chi, y adoro leer y compartir historias. ¿Te gustaría unirte a mí en una tarde de cuentos y aventuras? ¡Te espero!"</p>
+    <button onclick="showSection('habitantes')">Volver</button>
+</article>
+  
+
     <!-- Historia de Tsuki -->
     <article class="section" id="historiaTsuki">
         <h2>Tsuki</h2>
@@ -88,6 +103,131 @@
         </ul>
         <button onclick="showSection('menu')">Volver</button>
     </article>
+  <!-- Casa de Tsuki -->
+<article class="section" id="casaTsuki">
+    <h2>Casa de Tsuki</h2>
+    <p>"Ya estoy en mi hogar."</p>
+    <button onclick="showSection('cocinaTsuki')">Ir a la cocina</button>
+    <button onclick="showSection('comedorTsuki')">Ir al comedor</button>
+    <button onclick="showSection('dormitorioTsuki')">Ir al dormitorio</button>
+    <button onclick="showSection('menu')">Salir</button>
+</article>
+
+<!-- Cocina de Tsuki -->
+<article class="section" id="cocinaTsuki">
+    <h2>Cocina de Tsuki</h2>
+    <p>"Vamos a cocinar, ¡qué rica quedará la comida!"</p>
+    <button onclick="showSection('casaTsuki')">Volver</button>
+</article>
+
+<!-- Comedor de Tsuki -->
+<article class="section" id="comedorTsuki">
+    <h2>Comedor de Tsuki</h2>
+    <p>"Estoy comiendo. ¡Gracias por la deliciosa comida!"</p>
+    <button onclick="showSection('casaTsuki')">Volver</button>
+</article>
+
+<!-- Dormitorio de Tsuki -->
+<article class="section" id="dormitorioTsuki">
+    <h2>Dormitorio de Tsuki</h2>
+    <p>"A descansar después de un gran día."</p>
+    <button onclick="showSection('casaTsuki')">Volver</button>
+</article>
+  <!-- Casa de Chi -->
+<article class="section" id="casaChi">
+    <h2>Casa de Chi</h2>
+    <p>"¡Gracias por venir a visitarme! ¿Qué te gustaría hacer?"</p>
+    <button onclick="showSection('bibliotecaChi')">Ir a la biblioteca</button>
+    <button onclick="showSection('piscinaChi')">Ir a la piscina</button>
+    <button onclick="showSection('patioChi')">Ir a jugar al patio</button>
+    <button onclick="showSection('mapa')">Volver al menú</button>
+</article>
+  <!-- Biblioteca de Chi -->
+<article class="section" id="bibliotecaChi">
+    <h2>Biblioteca de Chi</h2>
+    <p>"Aquí tienes algunos libros de fantasía para leer. ¡Elige uno!"</p>
+
+    <button onclick="mostrarResumen('sombras')">📖 El Reino de las Sombras</button>
+    <button onclick="mostrarResumen('llaves')">🔑 Las Llaves del Destino</button>
+    <button onclick="mostrarResumen('dragon')">🐉 El Último Dragón</button>
+
+    <p id="resumenLibro"></p>
+
+    <button onclick="showSection('casaChi')">Volver</button>
+    <button onclick="showSection('mapa')">Volver al menú</button>
+</article>
+
+<script>
+function mostrarResumen(libro) {
+    let resumen = "";
+    if (libro === "sombras") {
+        resumen = "Un joven príncipe descubre un mundo oculto donde la magia oscura amenaza con consumirlo todo.";
+    } else if (libro === "llaves") {
+        resumen = "Una chica encuentra un conjunto de llaves mágicas que abren portales a diferentes dimensiones.";
+    } else if (libro === "dragon") {
+        resumen = "Un aventurero se embarca en la misión de encontrar al último dragón vivo antes de que sea demasiado tarde.";
+    }
+    document.getElementById("resumenLibro").innerText = resumen;
+}
+</script>
+<!-- Piscina de Chi -->
+<article class="section" id="piscinaChi">
+    <h2>Piscina de Chi</h2>
+    <p>"¡Hace calor! Vamos a nadar un rato."</p>
+
+    <button onclick="piscinaAction('tirarseClavado')">🤿 Tirarse un clavado</button>
+    <button onclick="piscinaAction('usarFlotador')">🛟 Usar flotador</button>
+    <button onclick="piscinaAction('chapotear')">💦 Chapotear en el agua</button>
+
+    <p id="piscinaMensaje"></p>
+
+    <button onclick="showSection('casaChi')">Volver</button>
+    <button onclick="showSection('mapa')">Volver al menú</button>
+</article>
+
+<script>
+function piscinaAction(accion) {
+    let sonido = "";
+    if (accion === "tirarseClavado") {
+        sonido = "💦 ¡Splash!";
+    } else if (accion === "usarFlotador") {
+        sonido = "🛟 ¡Flotando tranquilamente!";
+    } else if (accion === "chapotear") {
+        sonido = "💧 ¡Plop, plop, plop!";
+    }
+    document.getElementById("piscinaMensaje").innerText = sonido;
+}
+</script>
+<!-- Patio de Chi -->
+<article class="section" id="patioChi">
+    <h2>Patio de Chi</h2>
+    <p>Tsuky: "¡Qué lindas flores tienes, Chi! Me gustaría regalarte una."</p>
+
+    <button onclick="mostrarMenuFlores()">💐 Elegir una flor</button>
+
+    <div id="menuFlores" style="display:none;">
+        <button onclick="regalarFlor('Rosa')">🌹 Rosa</button>
+        <button onclick="regalarFlor('Tulipán')">🌷 Tulipán</button>
+        <button onclick="regalarFlor('Girasol')">🌻 Girasol</button>
+    </div>
+
+    <p id="mensajeFlor"></p>
+
+    <button onclick="showSection('casaChi')">Volver</button>
+    <button onclick="showSection('mapa')">Volver al menú</button>
+</article>
+
+<script>
+function mostrarMenuFlores() {
+    document.getElementById("menuFlores").style.display = "block";
+}
+
+function regalarFlor(tipo) {
+    document.getElementById("mensajeFlor").innerText = `🌸 Chi: "¡Gracias por la ${tipo}, Tsuky! Es muy bonita."`;
+}
+</script>
+
+
 
     <!-- Tiendas -->
     <article class="section" id="tiendas">
@@ -98,6 +238,85 @@
         </ul>
         <button onclick="showSection('menu')">Volver</button>
     </article>
+  <!-- Tienda de Rosemary -->
+<article class="section" id="tiendaRosemary">
+    <h2>Tienda de Rosemary</h2>
+    <p>"Bienvenido a mi tienda. Aquí encontrarás las flores más hermosas. ¿Cuál te gustaría llevar?"</p>
+    <button onclick="showSection('tiposFlores')">Ver tipos de flores</button>
+    <button onclick="showSection('tiendas')">Volver</button>
+</article>
+
+<!-- Tipos de Flores -->
+<article class="section" id="tiposFlores">
+    <h2>Tipos de Flores</h2>
+    <p>Elige una flor para comprar:</p>
+    <button onclick="comprarFlor('rosas')">Rosas</button>
+    <button onclick="comprarFlor('lirios')">Lirios</button>
+    <button onclick="comprarFlor('tulipanes')">Tulipanes</button>
+    <button onclick="comprarFlor('orquideas')">Orquídeas</button>
+    <button onclick="showSection('tiendaRosemary')">Volver</button>
+</article>
+
+<!-- Mensaje de Rosemary -->
+<article class="section" id="mensajeRosemary">
+    <h2>Mensaje de Rosemary</h2>
+    <p id="mensajeFlor"></p>
+    <button onclick="showSection('tiendaRosemary')">Volver</button>
+</article>
+
+<script>
+    function comprarFlor(tipo) {
+        let nombreFlor = {
+            'rosas': 'Rosas',
+            'lirios': 'Lirios',
+            'tulipanes': 'Tulipanes',
+            'orquideas': 'Orquídeas'
+        };
+        document.getElementById('mensajeFlor').innerText = 
+            `"Gracias por tu compra. Espero que esas ${nombreFlor[tipo]} lleven un lindo aroma a tu vida."`;
+        showSection('mensajeRosemary');
+    }
+</script>
+<!-- Tienda de Umi -->
+<article class="section" id="tiendaUmi">
+    <h2>Tienda de Umi</h2>
+    <p>"Bienvenido a mi tienda. Aquí encontrarás lo que necesitas para tu hogar y deliciosos ingredientes para cocinar. ¿Qué deseas comprar?"</p>
+    <button onclick="showSection('productosUmi')">Ver productos</button>
+    <button onclick="showSection('tiendas')">Volver</button>
+</article>
+
+<!-- Productos de Umi -->
+<article class="section" id="productosUmi">
+    <h2>Productos de Umi</h2>
+    <p>Elige un producto para comprar:</p>
+    <button onclick="comprarProducto('platos')">Juego de Platos</button>
+    <button onclick="comprarProducto('sarten')">Sartén Antiadherente</button>
+    <button onclick="comprarProducto('arroz')">Bolsa de Arroz</button>
+    <button onclick="comprarProducto('te')">Caja de Té</button>
+    <button onclick="showSection('tiendaUmi')">Volver</button>
+</article>
+
+<!-- Mensaje de Umi -->
+<article class="section" id="mensajeUmi">
+    <h2>Mensaje de Umi</h2>
+    <p id="mensajeProducto"></p>
+    <button onclick="showSection('tiendaUmi')">Volver</button>
+</article>
+
+<script>
+    function comprarProducto(tipo) {
+        let nombreProducto = {
+            'platos': 'Juego de Platos',
+            'sarten': 'Sartén Antiadherente',
+            'arroz': 'Bolsa de Arroz',
+            'te': 'Caja de Té'
+        };
+        document.getElementById('mensajeProducto').innerText = 
+            `"Gracias por tu compra. Vuelve pronto para encontrar más cosas útiles para tu hogar."`;
+        showSection('mensajeUmi');
+    }
+</script>
+
 
     <!-- Restaurantes -->
     <article class="section" id="restaurantes">
@@ -219,6 +438,7 @@
         showSection('respuestaBobo');
     }
 </script>
+
 
     <footer>
         <p>Proyecto de Anggelie Velásquez - Inspirado en Tsuki's Odyssey</p>
